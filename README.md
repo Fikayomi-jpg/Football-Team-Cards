@@ -7,10 +7,8 @@ This project displays footballer cards and allows users to **filter players by t
 
 ## 📌 Features
 
-- Display football player cards with images and details
+- Display football player cards with names and position
 - Filter players by position (e.g. Forward, Midfielder, Defender, Goalkeeper)
-- Dynamic rendering using JavaScript
-- Responsive card layout for mobile and desktop
 - Clean and modern UI design
 
 ---
