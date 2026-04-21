@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-gradient-start: #0f0c29;
+  --bg-gradient-mid: #302b63;
+  --bg-gradient-end: #24243e;
+  --card-bg: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a4a68;
+  --accent-forward: #ff6b6b;
+  --accent-midfielder: #4ecdc4;
+  --accent-defender: #45b7d1;
+  --accent-goalkeeper: #9c51b5;
+  --gold: #ffd700;
+  --white: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --radius: 20px;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-mid), var(--bg-gradient-end));
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #fff, #a8a8a8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+}
+
+.options-label {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+#players {
+  padding: 0.8rem 2.5rem 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  transition: all 0.3s ease;
+  margin-bottom: 2rem;
+}
+
+#players option {
+  background: #1a1a2e;
+  color: var(--white);
+  padding: 0.8rem 1rem;
+}
+
+#players option:checked {
+  background: #4ecdc4;
+  color: #0a0a23;
+}
+
+#players:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#players:focus {
+  outline: none;
+  border-color: #4ecdc4;
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.3);
+}
+
+.team-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-stats p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.team-stats span {
+  font-weight: 600;
+  color: #4ecdc4;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.player-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.8rem 1.5rem;
+  width: 280px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.player-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent-midfielder), var(--accent-forward));
+}
+
+.player-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.player-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+  line-height: 1.2;
+}
+
+.captain-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ffb300);
+  color: #1a1a2e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.player-card p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.position-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.8rem;
+}
+
+.player-card.position-forward .position-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+}
+
+.player-card.position-midfielder .position-badge {
+  background: linear-gradient(135deg, #4ecdc4, #44a3a0);
+  color: white;
+}
+
+.player-card.position-defender .position-badge {
+  background: linear-gradient(135deg, #45b7d1, #3498db);
+  color: white;
+}
+
+.player-card.position-goalkeeper .position-badge {
+  background: linear-gradient(135deg, #9c51b5, #8e44ad);
+  color: white;
+}
+
+.player-card.position-forward::before {
+  background: linear-gradient(90deg, #ff6b6b, #ff8e8e);
+}
+
+.player-card.position-midfielder::before {
+  background: linear-gradient(90deg, #4ecdc4, #6ee7de);
+}
+
+.player-card.position-defender::before {
+  background: linear-gradient(90deg, #45b7d1, #5fc8f4);
+}
+
+.player-card.position-goalkeeper::before {
+  background: linear-gradient(90deg, #9c51b5, #b07cc5);
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .team-stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .player-card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+
